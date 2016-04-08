@@ -1,0 +1,44 @@
+doctype html
+html(lang="es")
+	head
+		meta(charset="utf-8")
+		meta(name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no")
+		title   Vamooooooooos
+
+		//- Area para los templates
+
+		script(type="text/template" id="parella_tmpl").
+			<li>
+				<span id="pos"> <%= pos %> </sapn>
+				<span id="nom"> <%= nom %></sapn>
+				<br>
+				<span id="pts">Punts: <%= pts %></sapn>
+				<br>
+				<span id="pg">Partits Guanyats: <%= pg %></sapn>
+				<br>
+				<span id="pj">Jugats: <%= pj %></sapn>
+				<br>
+				<span id="pp">Perduts: <%= pp %></sapn>
+				<br>
+				<span id="pp">Jocs a favor: <%= jf %></sapn>
+				<br>
+				<span id="pp">Jocs en contra: <%= jc %></sapn>
+				<br>
+				<span id="dj">Sets a favor: <%= sf %></sapn>
+				<br>
+				<span id="np">Sets en contra: <%= sc %></sapn>
+				<br>
+				<span id="ds">Diferencia de sets: <%= ds %></sapn>
+			</li>
+
+	body
+		section#loader
+		ul#clasific
+
+		script(type="text/javascript" src="vendors/jquery-1.12.1.min.js")
+		script(type="text/javascript" src="vendors/underscorejs.min.js")
+		script(type="text/javascript" src="vendors/backbonejs.min.js")
+		script(type="text/javascript" src="models/ParellaVin.js")
+		script(type="text/javascript" src="models/Partit.js")
+		script(type="text/javascript" src="bviews/ParellaView.js")
+		script(type="text/javascript" src="vin.js")

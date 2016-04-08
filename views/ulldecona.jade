@@ -1,0 +1,47 @@
+doctype html
+html(lang="es")
+	head
+		meta(charset="utf-8")
+		meta(name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no")
+		title   Vamooooooooos
+		link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous")
+		link(rel="stylesheet", href="estilos.css")
+
+		//- Area para los templates
+
+		script(type="text/template" id="parella_tmpl").
+			<div class="row">
+				<span>Pts</sapn>
+				<span>PG</sapn>
+				<span>PJ</sapn>
+				<span>PP</sapn>
+				<span>DS</sapn>
+				<span>DJ</sapn>
+				<span>NP</sapn>
+			</div>
+			<li class="row">
+				<span id="pos"> <%= pos %> </sapn>
+				<span id="nom"> <%= nom %></sapn>
+				<span id="pts"> <%= pts %> </sapn>
+				<span id="pg"> <%= pg %> </sapn>
+				<span id="pj"> <%= pj %> </sapn>
+				<span id="pp"> <%= pp %> </sapn>
+				<span id="ds"> <%= ds %> </sapn>
+				<span id="dj"> <%= dj %> </sapn>
+				<span id="np"> <%= np %> </sapn>
+			</li>
+			<br>
+			<br>
+
+	body
+		section#loader
+		ul#clasific.container-fluid
+
+		script(type="text/javascript" src="vendors/jquery-1.12.1.min.js")
+		script(type="text/javascript" src="vendors/underscorejs.min.js")
+		script(type="text/javascript" src="vendors/backbonejs.min.js")
+		script(type="text/javascript" src="models/ParellaUll.js")
+		script(type="text/javascript" src="models/Partit.js")
+		script(type="text/javascript" src="bviews/ParellaView.js")
+		script(type="text/javascript" src="ull.js")
+		script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous")
