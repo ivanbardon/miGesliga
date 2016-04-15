@@ -53,7 +53,7 @@ function spycona (){
 			fs.writeFile('public/db/ull/U'+lliga+'P.json', body, function (err){
 				if(!err){
 					console.log('se guardó');
-					io.emmit('saveOk', 'se guardó');
+					io.emmit('saveOk', 'se guardó registro de ulldecona');
 				}else{console.log(err)}
 			});
 		});
@@ -62,7 +62,7 @@ function spycona (){
 			fs.writeFile('public/db/ull/U'+lliga+'R.json', body, function (err){
 				if(!err){
 					console.log('se guardó');
-					io.emmit('saveOk', 'se guardó');
+					io.emmit('saveOk', 'se guardó registro de ulldecona');
 				}else{console.log(err)}
 			});
 		});
@@ -81,7 +81,7 @@ function spyroz (){
 			fs.writeFile('public/db/vin/V'+lliga+'P.json', body, function (err){
 				if(!err){
 					console.log('se guardó');
-					io.emmit('saveOk', 'se guardó');
+					io.emmit('saveOk', 'se guardó registro de vinaros');
 				}else{console.log(err)}
 			});
 		});
@@ -90,7 +90,7 @@ function spyroz (){
 			fs.writeFile('public/db/vin/V'+lliga+'R.json', body, function (err){
 				if(!err){
 					console.log('se guardó');
-					io.emmit('saveOk', 'se guardó');
+					io.emmit('saveOk', 'se guardó registro de vinaros');
 				}else{console.log(err)}
 			});
 		});

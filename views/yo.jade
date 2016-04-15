@@ -15,6 +15,10 @@ html(lang="es")
 		br
 		input(type="button" value="Ulldecona" id="ull")
 		input(type="button" value="Vinaros" id="vin")
+		br
+		br
+		br
+		div#consola
 
 
 		script(type="text/javascript" src="vendors/jquery-1.12.1.min.js")
@@ -25,8 +29,8 @@ html(lang="es")
 			var socket = io();
 
 			socket.on('saveOk', function(msg){
-			console.log(msg);
-			})
+				$('#consola').append('<p>'+msg+'</p>')
+			});
 
 			$('#ull').click(function(e){
 				e.preventDefault;
@@ -36,5 +40,5 @@ html(lang="es")
 			$('#vin').click(function(e){
 				e.preventDefault;
 				socket.emit('vin', 'evento de spy para vinaros lanzado');
-			})
+			});
 
