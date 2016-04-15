@@ -10,7 +10,6 @@ var io = require('socket.io')(http);
 var request = require('request');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
-var jQuery = require('jquery');
 var fs = require('fs');
 
 
