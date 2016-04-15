@@ -6,6 +6,7 @@
 var express = require('express');
 var app = express();
 var http = require('http').Server(app);
+var io = require('socket.io')(http);
 var request = require('request');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
@@ -35,8 +36,11 @@ app.get('/vinaros', function(req, res){
 });
 
 
-app.get('/spycona', function(req, res){
+app.get('/yo', function(req, res){
+	res.render('yo');
+});
 
+function spycona (){
 	var lliges = ["193582","193658","193660"]
 
 	lliges.forEach(function(lliga){
@@ -48,7 +52,8 @@ app.get('/spycona', function(req, res){
 		request(urlP, function(err, resp, body) {
 			fs.writeFile('public/db/ull/U'+lliga+'P.json', body, function (err){
 				if(!err){
-					console.log('se guardó')
+					console.log('se guardó');
+					io.emmit('saveOk', 'se guardó');
 				}else{console.log(err)}
 			});
 		});
@@ -56,16 +61,14 @@ app.get('/spycona', function(req, res){
 		request(urlR, function(err, resp, body) {
 			fs.writeFile('public/db/ull/U'+lliga+'R.json', body, function (err){
 				if(!err){
-					console.log('se guardó')
+					console.log('se guardó');
+					io.emmit('saveOk', 'se guardó');
 				}else{console.log(err)}
 			});
 		});
 	});
-	res.send('ok');
-});
-
-app.get('/spyroz', function(req, res){
-
+};
+function spyroz (){
 	var lliges = ["197228","197206","197177","197175","197176","197171","197087","197086","197421","197422"]
 
 	lliges.forEach(function(lliga){
@@ -77,7 +80,8 @@ app.get('/spyroz', function(req, res){
 		request(urlP, function(err, resp, body) {
 			fs.writeFile('public/db/vin/V'+lliga+'P.json', body, function (err){
 				if(!err){
-					console.log('se guardó')
+					console.log('se guardó');
+					io.emmit('saveOk', 'se guardó');
 				}else{console.log(err)}
 			});
 		});
@@ -85,13 +89,24 @@ app.get('/spyroz', function(req, res){
 		request(urlR, function(err, resp, body) {
 			fs.writeFile('public/db/vin/V'+lliga+'R.json', body, function (err){
 				if(!err){
-					console.log('se guardó')
+					console.log('se guardó');
+					io.emmit('saveOk', 'se guardó');
 				}else{console.log(err)}
 			});
 		});
 	});
-});
+};
 
+io.on('connection', function(socket){
+	socket.on('ull', function(msg){
+		console.log(msg);
+		spycona();
+	});
+	socket.on('vin', function(msg){
+		console.log(msg);
+		spyroz();	
+	})
+});
 
 //Puerto para servir
 http.listen(app.get('port'), function(){
