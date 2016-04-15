@@ -13,7 +13,9 @@ var ParellaUll = Backbone.Model.extend({
 	},
 	initialize : function () {
 		this.set('pos', this.attributes[0].content); 
-		this.set('nom', this.attributes[1].content); 
+		var nomsRaw = this.attributes[1].content.split('-');
+		var noms = nomsRaw[0] +'/'+ nomsRaw[nomsRaw.length-1];
+		this.set('nom', noms); 
 		this.set('pj', this.attributes[2].content); 
 		this.set('pg', this.attributes[3].content); 
 		this.set('pp', this.attributes[4].content); 

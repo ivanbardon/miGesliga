@@ -12,8 +12,7 @@ html(lang="es")
 		script(type="text/template" id="parella_tmpl").
 			
 			<div class="row">
-				<span id="pos" class="col-xs-1"> <%= pos %> </span>
-				<span id="nom" class="col-xs-4"> <%= nom %></span>
+				<span id="nom" class="col-xs-5"> <%= pos %>. <%= nom %></span>
 				<span id="pts" class="col-xs-1"> <%= pts %> </span>
 				<span id="pg" class="col-xs-1"> <%= pg %> </span>
 				<span id="pj" class="col-xs-1"> <%= pj %> </span>
@@ -22,10 +21,12 @@ html(lang="es")
 				<span id="dj" class="col-xs-1"> <%= dj %> </span>
 				<span id="np" class="col-xs-1"> <%= np %> </span>
 			</div>
+			<br>
 
 		script(type="text/template" id="partit_tmpl").
 
 			<div class="row">
+				<span class="col-xs-12">  <%= num_jornada %> </span>
 				<span class="col-xs-6">  <%= parellaLocal %> </span>
 				<span class="col-xs-2">  <%= parA1 %> </span>
 				<span class="col-xs-2">  <%= parA2 %> </span>
@@ -37,16 +38,19 @@ html(lang="es")
 				<span class="col-xs-2">  <%= parB2 %> </span>
 				<span class="col-xs-2">  <%= parB3 %> </span>
 			</div>
+			<br>
+			<br>
+			<br>
 
 	body
-		section#cabecera.container-fluid
+		section#cabecera.container
 			div.row
-				div(id="btn_ranking" class="col-xs-1") Ranking
-				div(class="col-xs-1") |
-				div(id="btn_partits" class="col-xs-1") Partits
-				h4(class="col-xs-9") Lliga de primavera 3era Divisió 2016
+				input(type="button" id="btn_ranking" class="col-xs-6" value="Ranking")
+				input(type="button" id="btn_partits" class="col-xs-6" value="Partits")
+				h4(class="col-xs-12") Lliga de primavera 3era Divisió 2016
+				br
 
-		section#clasific.container-fluid
+		section#clasific.container
 			div.row
 				span(class="col-xs-1 col-xs-offset-5") Pts
 				span(class="col-xs-1") PG
@@ -55,12 +59,14 @@ html(lang="es")
 				span(class="col-xs-1") DS
 				span(class="col-xs-1") DJ
 				span(class="col-xs-1") NP
+				br
 
-		section#jornades_div.container-fluid
+		section#jornades_div.container
 			div.row
-				span(class="col-xs-2") set 1
+				span(class="col-xs-2 col-xs-offset-6") set 1
 				span(class="col-xs-2") set 2
 				span(class="col-xs-2") set 3
+			br
 
 
 		script(type="text/javascript" src="vendors/jquery-1.12.1.min.js")
@@ -69,5 +75,6 @@ html(lang="es")
 		script(type="text/javascript" src="models/ParellaUll.js")
 		script(type="text/javascript" src="models/Partit.js")
 		script(type="text/javascript" src="bviews/ParellaView.js")
+		script(type="text/javascript" src="bviews/PartitView.js")
 		script(type="text/javascript" src="ull.js")
 		script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous")

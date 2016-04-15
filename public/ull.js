@@ -11,6 +11,19 @@ var idLliga1ull = "193582";
 
 $(document).ready(function () {
 
+    $('#jornades_div').hide();
+
+    $('#btn_ranking').click(function(){
+        $('#jornades_div').hide();
+        $('#clasific').show();
+    });
+
+    $('#btn_partits').click(function(){
+        $('#clasific').hide();
+        $('#jornades_div').show();
+    });
+
+    // Llamadas a los JSON que hacen de base de datos
     $.getJSON('/db/ull/U193660R.json',function(data){
 
         // Objecte que conte unicament les parelles
@@ -58,6 +71,8 @@ $(document).ready(function () {
         });
 
         partits = new PartitsCollection(partitsAux);
+
+        var partitView = new PartitView({el:$('#jornades_div'), collection: partits});
 
     });
 });
