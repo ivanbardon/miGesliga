@@ -48,7 +48,6 @@ $(document).ready(function () {
 
     $.getJSON('/db/ull/U193660P.json', function(data){
 
-        console.log(data);
         // // Objecte en totes les jornades
         var jornadesData = data.query.results.div.div;
         
